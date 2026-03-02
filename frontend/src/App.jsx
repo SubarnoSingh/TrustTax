@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import SummaryCards from './components/SummaryCards';
 import FraudChart from './components/FraudChart';
 import InvoiceTable from './components/InvoiceTable';
 import InvoiceUpload from './components/InvoiceUpload';
+import InvoiceResultModal from './components/InvoiceResultModal';
 import { getFraudSummary, detectFraud } from './api';
 import './styles.css';
 
@@ -12,6 +13,9 @@ function App() {
   const [invoices, setInvoices] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [analysisResult, setAnalysisResult] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const fraudChartRef = useRef(null);
 
   // Fetch initial summary data
   const fetchSummary = async () => {
@@ -36,12 +40,24 @@ function App() {
       setInvoices(data);
       // Update summary as well in case it changed
       fetchSummary();
+      // Scroll to the fraud chart
+      fraudChartRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       console.error('Error detecting fraud:', err);
       setError('Detection failed. Is the backend server online?');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleAnalysisComplete = (result) => {
+    setAnalysisResult(result);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setAnalysisResult(null);
   };
 
   return (
@@ -52,22 +68,24 @@ function App() {
         {error && <div className="error-message" style={{ color: 'red', padding: '1rem', border: '1px solid red', borderRadius: '8px', marginBottom: '1rem' }}>{error}</div>}
         
         <SummaryCards summary={summary} />
-        
+
         <section className="actions">
           <button 
             className="btn-primary" 
             onClick={handleDetectFraud}
             disabled={loading}
           >
-            {loading ? 'Analyzing Data...' : 'Run Fraud Detection'}
+            {loading ? 'Analyzing Dataset...' : 'Analyze from Dataset'}
           </button>
         </section>
-
-        <InvoiceUpload />
         
-        <FraudChart data={invoices} />
+        <InvoiceUpload onAnalysisComplete={handleAnalysisComplete} />
+        
+        <FraudChart ref={fraudChartRef} data={invoices} />
         
         <InvoiceTable invoices={invoices} />
+
+        {isModalOpen && <InvoiceResultModal result={analysisResult} onClose={closeModal} />}
       </main>
     </div>
   );
