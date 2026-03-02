@@ -1,87 +1,89 @@
-TrustTax
-AI-Powered GST Fraud Detection & Compliance Monitoring System
+# 🚀 TrustTax
+### AI-Powered GST Fraud Detection & Compliance Monitoring System
 
-TrustTax is an AI-driven GST fraud detection platform designed to identify suspicious invoice patterns and tax manipulation.
-The system analyzes GST invoices using OCR, rule-based validation, and machine learning anomaly detection to detect potential fraud and generate risk insights through an interactive dashboard.
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![Machine Learning](https://img.shields.io/badge/AI-Anomaly%20Detection-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-TrustTax helps businesses, auditors, and regulators improve transparency, detect fraudulent invoices early, and strengthen GST compliance.
+**TrustTax** is an AI-powered platform designed to detect **fraudulent GST invoices and suspicious tax patterns**.  
+The system analyzes invoices using **OCR, rule-based validation, and machine learning anomaly detection** to identify potential fraud and generate **risk insights through a dashboard**.
 
-Key Features
+This project helps **businesses, auditors, and regulators** improve financial transparency and strengthen GST compliance.
 
-GST Invoice Upload – Upload GST invoice PDFs for automatic analysis
+---
 
-OCR-Based Data Extraction – Extract invoice details from structured and graphical PDFs
+# ✨ Features
 
-Rule-Based GST Validation – Detect GST mismatches and abnormal invoice values
+- 📄 **GST Invoice Upload** – Upload GST invoice PDFs for automated analysis  
+- 🔍 **OCR Data Extraction** – Extract invoice details from structured and graphical PDFs  
+- ⚙️ **Rule-Based Validation** – Detect GST mismatches and abnormal invoice values  
+- 🤖 **AI Anomaly Detection** – Identify unusual patterns using machine learning  
+- 📊 **Fraud Risk Scoring** – Automatically flag suspicious invoices  
+- 📈 **Analytics Dashboard** – Visual insights and fraud monitoring  
+- 🛡 **Compliance Monitoring** – Helps maintain GST compliance and transparency  
 
-AI Anomaly Detection – Identify unusual patterns using machine learning models
+---
 
-Fraud Risk Scoring – Automatically flag suspicious invoices with risk scores
+# ⚙️ System Workflow
 
-Analytics Dashboard – Visual insights and fraud monitoring interface
-
-Compliance Monitoring – Helps auditors and businesses maintain tax compliance
-
-System Workflow
+```
 User
    ↓
 Upload GST Invoice (PDF / Dataset)
    ↓
-PDF Parser + OCR Processing
+PDF Parser + OCR
    ↓
 Invoice Data Extraction
    ↓
 Data Preprocessing
    ↓
 Fraud Detection Engine
-   ├ Rule-Based GST Validation
-   └ AI Anomaly Detection
+   ├── Rule-Based GST Validation
+   └── AI Anomaly Detection
    ↓
 Fraud Risk Scoring
    ↓
 Fraud Detection Dashboard
    ↓
 Fraud Alerts & Compliance Monitoring
-Tech Stack
-Frontend
+```
 
-React.js
+---
 
-TailwindCSS
+# 🛠 Tech Stack
 
-Chart libraries for visualization
+### Frontend
+- React.js
+- TailwindCSS
+- Chart libraries for visualization
 
-Backend
+### Backend
+- FastAPI
+- Python
 
-FastAPI
+### Machine Learning
+- Scikit-learn
+- Isolation Forest (Anomaly Detection)
 
-Python
+### Data Processing
+- Pandas
+- NumPy
 
-AI / Machine Learning
+### Document Processing
+- PDFPlumber
+- Tesseract OCR
+- PDF2Image
 
-Scikit-learn
+### Database
+- PostgreSQL
 
-Isolation Forest (Anomaly Detection)
+---
 
-Data Processing
+# 📁 Project Structure
 
-Pandas
-
-NumPy
-
-Document Processing
-
-PDFPlumber
-
-Tesseract OCR
-
-PDF2Image
-
-Database
-
-PostgreSQL
-
-Project Structure
+```
 trusttax/
 │
 ├── backend/
@@ -101,68 +103,87 @@ trusttax/
 │
 ├── requirements.txt
 └── README.md
-Installation
-Clone the repository
+```
+
+---
+
+# ⚡ Installation
+
+## Clone Repository
+
+```bash
 git clone https://github.com/yourusername/trusttax.git
 cd trusttax
-Backend Setup
+```
 
-Install dependencies:
+---
 
+## Backend Setup
+
+Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-Run the server:
+Run the API server
 
+```bash
 uvicorn main:app --reload
-Frontend Setup
+```
+
+---
+
+## Frontend Setup
+
+```bash
 cd frontend
 npm install
 npm run dev
-Example Use Case
+```
 
-Upload a GST invoice PDF
+---
 
-System extracts invoice details using OCR
+# 📌 Example Use Case
 
-Fraud detection engine analyzes invoice
+1️⃣ Upload a GST invoice PDF  
+2️⃣ System extracts invoice data using OCR  
+3️⃣ Fraud detection engine analyzes invoice  
+4️⃣ Fraud risk score is generated  
+5️⃣ Results displayed in the dashboard  
 
-Risk score and fraud flags are generated
+---
 
-Results displayed in dashboard
+# 🌍 Potential Impact
 
-Potential Impact
+- Reduce GST fraud and tax manipulation  
+- Improve financial transparency  
+- Assist auditors and regulators  
+- Enable early fraud detection  
+- Support data-driven compliance monitoring  
 
-Reduces GST fraud and tax manipulation
+---
 
-Improves financial transparency
+# 📚 Research & References
 
-Assists auditors and regulators
+- GST Network – Government of India  
+- Central Board of Indirect Taxes & Customs  
+- Scikit-learn Documentation  
+- Tesseract OCR Documentation  
 
-Enables early fraud detection
+---
 
-Supports data-driven compliance monitoring
+# 🔮 Future Enhancements
 
-Research & References
+- Real-time GST transaction monitoring  
+- Deep learning-based fraud detection  
+- Integration with GST government APIs  
+- Automated audit report generation  
 
-GST Network (Government of India)
+---
 
-Central Board of Indirect Taxes & Customs
+# 📌 Project Name
 
-Scikit-learn Documentation
+**TrustTax**
 
-Tesseract OCR Documentation
-
-Future Enhancements
-
-Real-time GST transaction monitoring
-
-Deep learning-based fraud detection models
-
-Integration with government GST APIs
-
-Automated audit report generation
-
-Project Name
-
-TrustTax
-AI-powered GST fraud detection for secure and transparent tax systems.
+*AI-powered GST fraud detection for secure and transparent tax systems.*
