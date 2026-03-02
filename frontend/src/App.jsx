@@ -41,7 +41,7 @@ function App() {
       // Update summary as well in case it changed
       fetchSummary();
       // Scroll to the fraud chart
-      fraudChartRef.current.scrollIntoView({ behavior: 'smooth' });
+      fraudChartRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       console.error('Error detecting fraud:', err);
       setError('Detection failed. Is the backend server online?');

@@ -115,6 +115,9 @@ def detect_fraud():
             
         results.append({
             "invoice_id": row['invoice_id'],
+            "seller_gstin": row['seller_gstin'],
+            "buyer_gstin": row['buyer_gstin'],
+            "invoice_amount": row['invoice_amount'],
             "risk_score": risk_score,
             "risk_level": risk_level,
             "flags": flags
