@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 
-const FraudChart = ({ data }) => {
+const FraudChart = forwardRef(({ data }, ref) => {
   if (!data || data.length === 0) return (
-    <div className="chart-container empty">
+    <div className="chart-container empty" ref={ref}>
       <p>No data available for distribution chart</p>
     </div>
   );
@@ -21,7 +21,7 @@ const FraudChart = ({ data }) => {
   ].filter(item => item.value > 0);
 
   return (
-    <div className="chart-container">
+    <div className="chart-container" ref={ref}>
       <h3>Fraud Risk Distribution</h3>
       <div className="chart-wrapper">
         <ResponsiveContainer width="100%" height={300}>
@@ -46,6 +46,6 @@ const FraudChart = ({ data }) => {
       </div>
     </div>
   );
-};
+});
 
 export default FraudChart;
